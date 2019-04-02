@@ -1,10 +1,14 @@
 {
   "development": {
-    "username": null,
-    "password": null,
-    "database": "ian-mp",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "vhvvgibtpvauqh",
+    "password": "1ca7e901c0d7ccb53c1aa90a90cb1679a062cde1a239e134b4512e7de0d91c4b",
+    "database": "desvs613oona3n",
+    "host": "ec2-23-23-92-204.compute-1.amazonaws.com",
+    "port": 5432,
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": true
+    }
   },
   "test": {
     "username": null,
@@ -16,6 +20,8 @@
   "production": {
     "use_env_variable": "DATABASE_URL",
     "dialect": "postgres",
-    "operatorsAliases": "Sequelize.Op"
+    "dialectOptions": {
+      "ssl": true
+    }
   }
 }
