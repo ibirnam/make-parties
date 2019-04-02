@@ -48,6 +48,9 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
 
 const port = process.env.PORT || 3000;
 
+console.log("pg: ", {Client})
+console.log("db url: ", process.env.DATABASE_URL)
+
 app.listen(port, () => {
   console.log('App listening on port 3000!')
 })
