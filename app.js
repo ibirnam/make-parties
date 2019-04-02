@@ -6,9 +6,15 @@ var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+// INITIALIZE BODY-PARSER AND ADD IT TO APP
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // app.get('/', (req, res) => {
 //   res.render('home', { msg: 'Handlebars are Cool!' });
 // })
+
+const models = require('./db/models');
 
 // OUR MOCK ARRAY OF PROJECTS
 var events = [
@@ -19,8 +25,30 @@ var events = [
 
 // INDEX
 app.get('/', (req, res) => {
-  res.render('events-index', { events: events });
+  models.Event.findAll({ order: [['createdAt', 'DESC']] }).then(events => {
+    res.render('events-index', { events: events });
+  })
 })
+// app.get('/', (req, res) => {
+//   res.render('events-index', { events: events });
+// })
+
+// NEW
+app.get('/events/new', (req, res) => {
+  res.render('events-new', {});
+})
+
+// CREATE
+app.post('/events', (req, res) => {
+  models.Event.create(req.body).then(event => {
+    res.redirect(`/`);
+  }).catch((err) => {
+    console.log(err)
+  });
+})
+// app.post('/events', (req, res) => {
+//   console.log(req.body);
+// })
 
 const port = process.env.PORT || 3000;
 

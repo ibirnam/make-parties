@@ -9,7 +9,14 @@
   "author": "Ian Birnam <ian3000@gmail.com> (https://github.com/ibirnam/)",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "express-handlebars": "^3.0.2"
+    "express-handlebars": "^3.0.2",
+    "mysql2": "^1.6.5",
+    "nodemon": "^1.18.10",
+    "pg": "^7.9.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^5.2.8",
+    "sequelize-cli": "^5.4.0"
   }
 }
